@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Comp from './Comp/Comp';
+import './Comp/Comp.css'
 
 class App extends Component {
 
