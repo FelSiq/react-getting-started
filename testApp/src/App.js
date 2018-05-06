@@ -25,10 +25,19 @@ class App extends Component {
 	}
 
 	 render() {
-		 return (
+		const style = {
+			backgroundColor: 'white',
+			font: 'inherit',
+			border: '1px solid blue',
+			padding: '8px'
+		};
+
+		return (
 			<div className="App">
 				<h1> This is a test App!</h1>
-				<button onClick={this.buttonHandler.bind(this, 'A new value!')}>Hello world!</button>		 
+				<button 
+					style={style}
+					onClick={this.buttonHandler.bind(this, 'A new value!')}>Hello world!</button>		 
 				<Comp 
 						 name={this.state.persons[0].name} 
 						 age={this.state.persons[0].age} 
