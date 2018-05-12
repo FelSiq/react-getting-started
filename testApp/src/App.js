@@ -9,22 +9,16 @@ class App extends Component {
 	state = {
 		persons : [
 			{ name: 'Felipe', age: 22 }
-		]
+		],
+		showInformation: false
 	}
 
-	buttonHandler = (message) => {
-		console.log(message);
+	toggleNameHandler = () => {
+		const doesShow = this.state.showInformation;
+		this.setState({showInformation: !doesShow});
 	}
 
-	nameChangedHandler = (event) => {
-		this.setState( {
-				persons : [
-					{ name: event.target.value, age: 20 }
-				]		
-			}	)
-	}
-
-	 render() {
+	render() {
 		const style = {
 			backgroundColor: 'white',
 			font: 'inherit',
@@ -32,17 +26,24 @@ class App extends Component {
 			padding: '8px'
 		};
 
+
+		let information = null;
+		if (this.state.showInformation) {
+			information = (<div>
+				<Comp 
+				name={this.state.persons[0].name} 
+				age={this.state.persons[0].age} 
+				changed={this.nameChangedHandler}/>
+			</div>)
+		}
+
 		return (
 			<div className="App">
 				<h1> This is a test App!</h1>
 				<button 
 					style={style}
-					onClick={this.buttonHandler.bind(this, 'A new value!')}>Hello world!</button>		 
-				<Comp 
-						 name={this.state.persons[0].name} 
-						 age={this.state.persons[0].age} 
-						 changed={this.nameChangedHandler}
-						 click={this.buttonHandler.bind(this, 'Another message, completely different!')} />
+					onClick={this.toggleNameHandler}>Hide information</button>		 
+				{ information }
 			</div>
 		 );
 	 }
