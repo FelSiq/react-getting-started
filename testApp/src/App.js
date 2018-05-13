@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Comp from './Comp/Comp';
-import './Comp/Comp.css'
+import './Comp/Comp.css';
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
 	state = {
@@ -49,14 +49,20 @@ class App extends Component {
 	}
 	
 	render() {
+		/* Style for a generical Button */
 		const style = {
-			backgroundColor: 'white',
+			backgroundColor: 'green',
+			color: 'white',
 			font: 'inherit',
 			border: '1px solid blue',
-			padding: '8px'
+			padding: '8px',
+			':hover': {
+				backgroundColor: 'lightgreen',
+				color: 'black',
+			},
 		};
 
-
+		/* Show/Hide information */
 		let information = null;
 		if (this.state.showInformation) {
 			information = (<div>
@@ -65,22 +71,44 @@ class App extends Component {
 						buttonDelete = { this.deletePersonHandler.bind(this, index) }
 						key = { personData.id }
 						name = { personData.name }
-						changeBox = { (event) => this.changeNameHandler(event, personData.id) }
+						changeBox = { (event) => 
+							this.changeNameHandler(event, personData.id) }
 						age = { personData.age } />})}
-			</div>)
+			</div>);
+
+			style.backgroundColor = 'red';
+			style[':hover'] = {
+				backgroundColor: 'salmon',
+				color: 'black',
+			}
 		}
+		
+		/* Classes changing dinamically section. */
+		let classes = ['boldFont'];
+		let dbUsage = '';
+		if (this.state.persons.length <= 3) {
+			classes.push('lightDB');
+			dbUsage = 'light';
+		} else {
+			classes.push('heavyDB')
+			dbUsage = 'heavy';
+		}
+		classes=classes.join(' ');
 
 		return (
-			<div className="App">
-				<h1> React test app </h1>
+			<StyleRoot>
+				<div className="App">
+				<h1> Test Cumbersome Database </h1>
+				<p className={classes}> Database usage: {dbUsage} </p>
 				<button 
 					style={style}
 					onClick={this.toggleNameHandler}>
 					{this.state.buttonText} information</button>		 
-				{ information }
-			</div>
+					{ information }
+				</div>
+			</StyleRoot>
 		 );
 	 }
 }
 
-export default App;
+export default Radium(App);
