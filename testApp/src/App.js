@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './App.css';
 import Comp from './Comp/Comp';
 import './Comp/Comp.css';
+// import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 // import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
@@ -57,13 +58,16 @@ class App extends Component {
 		if (this.state.showInformation) {
 			information = (<div>
 				{this.state.persons.map((personData, index) => {
-					return 	<Comp
-						buttonDelete = { this.deletePersonHandler.bind(this, index) }
-						key = { personData.id }
-						name = { personData.name }
-						changeBox = { (event) => 
-							this.changeNameHandler(event, personData.id) }
-						age = { personData.age } />})}
+					return (// <ErrorBoundary key = { personData.id }>
+							<Comp
+							key = { personData.id }
+							buttonDelete = { this.deletePersonHandler.bind(this, index) }
+							name = { personData.name }
+							changeBox = { (event) => 
+								this.changeNameHandler(event, personData.id) }
+							age = { personData.age } />
+						// </ ErrorBoundary>
+					)})}
 			</div>);
 
 			buttonClass = styles.Red;

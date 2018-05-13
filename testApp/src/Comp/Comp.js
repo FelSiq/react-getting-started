@@ -8,7 +8,6 @@ const comp = (props) => {
 			width: '450px'
 		}
 	} */
-
 	return (
 		<div className={styles.Comp} /*style={style}*/>
 			<p>Hello! I'm {props.name} and i'm {props.age}!</p>
