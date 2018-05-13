@@ -21,7 +21,7 @@ const cockpit = (props) => {
 	classes=classes.join(' ');
 
 	return (<div className={styles.Cockpit}>
-		<h1> test Cumbersome Database </h1>
+		<h1> {props.appTitle} </h1>
 		<p className={classes}> Database usage: {dbUsage} </p>
 		<button
 			className={btnClass}

@@ -64,6 +64,7 @@ class App extends Component {
 			// <StyleRoot>
 				<div className={styles.App}>
 					<Cockpit 
+						appTitle={this.props.title}
 						buttonText={this.state.buttonText}
 						showButton={this.toggleNameHandler}
 						dbLength={this.state.persons.length}
