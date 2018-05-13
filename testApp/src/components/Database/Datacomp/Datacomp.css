@@ -1,4 +1,4 @@
-.Comp {
+.Datacomp {
 	width: 60%;
 	margin: 16px auto;
 	border: 1px solid #eee;
@@ -7,7 +7,7 @@
 	box-shadow: 0 2px 3px #ccc;	
 }
 
-.Comp button {
+.Datacomp button {
   background-color: #4682B4;
   color: white;
   font: inherit;
@@ -16,13 +16,13 @@
   cursor: pointer;
 }
 
-.Comp button:hover {
+.Datacomp button:hover {
   background-color: #20B2AA;
   color: black;
 }
 
 @media (min-width: 500px) {
-  .Comp {
+  .Datacomp {
     width: 450px;
   }
 }

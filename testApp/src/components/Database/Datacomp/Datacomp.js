@@ -9,7 +9,7 @@ const datacomp = (props) => {
 		}
 	} */
 	return (
-		<div className={styles.Comp} /*style={style}*/>
+		<div className={styles.Datacomp} /*style={style}*/>
 			<p>Hello! I'm {props.name} and i'm {props.age}!</p>
 			<p>{props.children}</p>
 			<p>

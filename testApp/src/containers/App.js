@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styles from './App.css';
-import Comp from '../components/Database/Datacomp/Datacomp';
-import '../components/Database/Datacomp/Datacomp.css';
-// import ErrorBoundary from '../componenets/ErrorBoundary/ErrorBoundary'
+import Database from '../components/Database/Database';
 // import Radium, { StyleRoot } from 'radium';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 	state = {
@@ -50,50 +49,26 @@ class App extends Component {
 	}
 	
 	render() {
-		/* Style for a generical Button */
-		let buttonClass = null;
-
 		/* Show/Hide information */
 		let information = null;
 		if (this.state.showInformation) {
-			information = (<div>
-				{this.state.persons.map((personData, index) => {
-					return (// <ErrorBoundary key = { personData.id }>
-							<Comp
-							key = { personData.id }
-							buttonDelete = { this.deletePersonHandler.bind(this, index) }
-							name = { personData.name }
-							changeBox = { (event) => 
-								this.changeNameHandler(event, personData.id) }
-							age = { personData.age } />
-						// </ ErrorBoundary>
-					)})}
-			</div>);
-
-			buttonClass = styles.Red;
+			information = ( <div>
+				<Database
+					data={this.state.persons}
+					delButton={this.deletePersonHandler}
+					changed={this.changeNameHandler} />
+			</div> );
 		}
 		
-		/* Classes changing dinamically section. */
-		let classes = [styles.boldFont];
-		let dbUsage = '';
-		if (this.state.persons.length <= 3) {
-			classes.push(styles.lightDB);
-			dbUsage = 'light';
-		} else {
-			classes.push(styles.heavyDB)
-			dbUsage = 'heavy';
-		}
-		classes=classes.join(' ');
-
 		return (
 			// <StyleRoot>
 				<div className={styles.App}>
-				<h1> Test Cumbersome Database </h1>
-				<p className={classes}> Database usage: {dbUsage} </p>
-				<button
-					className={buttonClass}
-					onClick={this.toggleNameHandler}>
-					{this.state.buttonText} information</button>		 
+					<Cockpit 
+						buttonText={this.state.buttonText}
+						showButton={this.toggleNameHandler}
+						dbLength={this.state.persons.length}
+						showInformation={this.state.showInformation}
+						/>
 					{ information }
 				</div>
 			// </StyleRoot>
