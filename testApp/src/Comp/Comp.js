@@ -1,16 +1,16 @@
 import React from 'react';
 import './Comp.css';
-import Radium from 'radium';
+// import Radium from 'radium';
 
 const comp = (props) => {
-	const style = {
+	/* const style = {
 		'@media (min-width: 500px)': {
 			width: '450px'
 		}
-	}
+	} */
 
 	return (
-		<div className='Comp' style={style}>
+		<div className='Comp' /*style={style}*/>
 			<p>Hello! I'm {props.name} and i'm {props.age}!</p>
 			<p>{props.children}</p>
 			<p>
@@ -22,4 +22,5 @@ const comp = (props) => {
 	);
 }
 
-export default Radium(comp);
+// export default Radium(comp);
+export default comp;

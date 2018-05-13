@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Comp from './Comp/Comp';
 import './Comp/Comp.css';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
 	state = {
@@ -56,10 +56,10 @@ class App extends Component {
 			font: 'inherit',
 			border: '1px solid blue',
 			padding: '8px',
-			':hover': {
-				backgroundColor: 'lightgreen',
-				color: 'black',
-			},
+			// ':hover': {
+			// 	backgroundColor: 'lightgreen',
+			// 	color: 'black',
+			// },
 		};
 
 		/* Show/Hide information */
@@ -77,10 +77,10 @@ class App extends Component {
 			</div>);
 
 			style.backgroundColor = 'red';
-			style[':hover'] = {
-				backgroundColor: 'salmon',
-				color: 'black',
-			}
+			// style[':hover'] = {
+			// 	backgroundColor: 'salmon',
+			// 	color: 'black',
+			// }
 		}
 		
 		/* Classes changing dinamically section. */
@@ -96,7 +96,7 @@ class App extends Component {
 		classes=classes.join(' ');
 
 		return (
-			<StyleRoot>
+			// <StyleRoot>
 				<div className="App">
 				<h1> Test Cumbersome Database </h1>
 				<p className={classes}> Database usage: {dbUsage} </p>
@@ -106,9 +106,10 @@ class App extends Component {
 					{this.state.buttonText} information</button>		 
 					{ information }
 				</div>
-			</StyleRoot>
+			// </StyleRoot>
 		 );
 	 }
 }
 
-export default Radium(App);
+// export default Radium( App )
+export default App;
