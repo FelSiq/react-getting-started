@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './App.css';
-import Comp from './Comp/Comp';
-import './Comp/Comp.css';
-// import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Comp from '../components/Database/Datacomp/Datacomp';
+import '../components/Database/Datacomp/Datacomp.css';
+// import ErrorBoundary from '../componenets/ErrorBoundary/ErrorBoundary'
 // import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {

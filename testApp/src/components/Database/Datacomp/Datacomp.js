@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Comp.css';
+import styles from './Datacomp.css';
 // import Radium from 'radium';
 
-const comp = (props) => {
+const datacomp = (props) => {
 	/* const style = {
 		'@media (min-width: 500px)': {
 			width: '450px'
@@ -22,4 +22,4 @@ const comp = (props) => {
 }
 
 // export default Radium(comp);
-export default comp;
+export default datacomp;
