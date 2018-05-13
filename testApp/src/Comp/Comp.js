@@ -1,5 +1,5 @@
 import React from 'react';
-import './Comp.css';
+import styles from './Comp.css';
 // import Radium from 'radium';
 
 const comp = (props) => {
@@ -10,11 +10,11 @@ const comp = (props) => {
 	} */
 
 	return (
-		<div className='Comp' /*style={style}*/>
+		<div className={styles.Comp} /*style={style}*/>
 			<p>Hello! I'm {props.name} and i'm {props.age}!</p>
 			<p>{props.children}</p>
 			<p>
-				Type a new name:
+				Type a name:
 				<input type='text' value={props.name} onChange={props.changeBox}/>
 				<button onClick={props.buttonDelete}> Delete Person </ button>
 			</p>

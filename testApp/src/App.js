@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import styles from './App.css';
 import Comp from './Comp/Comp';
 import './Comp/Comp.css';
 // import Radium, { StyleRoot } from 'radium';
@@ -50,17 +50,7 @@ class App extends Component {
 	
 	render() {
 		/* Style for a generical Button */
-		const style = {
-			backgroundColor: 'green',
-			color: 'white',
-			font: 'inherit',
-			border: '1px solid blue',
-			padding: '8px',
-			// ':hover': {
-			// 	backgroundColor: 'lightgreen',
-			// 	color: 'black',
-			// },
-		};
+		let buttonClass = null;
 
 		/* Show/Hide information */
 		let information = null;
@@ -76,32 +66,28 @@ class App extends Component {
 						age = { personData.age } />})}
 			</div>);
 
-			style.backgroundColor = 'red';
-			// style[':hover'] = {
-			// 	backgroundColor: 'salmon',
-			// 	color: 'black',
-			// }
+			buttonClass = styles.Red;
 		}
 		
 		/* Classes changing dinamically section. */
-		let classes = ['boldFont'];
+		let classes = [styles.boldFont];
 		let dbUsage = '';
 		if (this.state.persons.length <= 3) {
-			classes.push('lightDB');
+			classes.push(styles.lightDB);
 			dbUsage = 'light';
 		} else {
-			classes.push('heavyDB')
+			classes.push(styles.heavyDB)
 			dbUsage = 'heavy';
 		}
 		classes=classes.join(' ');
 
 		return (
 			// <StyleRoot>
-				<div className="App">
+				<div className={styles.App}>
 				<h1> Test Cumbersome Database </h1>
 				<p className={classes}> Database usage: {dbUsage} </p>
-				<button 
-					style={style}
+				<button
+					className={buttonClass}
 					onClick={this.toggleNameHandler}>
 					{this.state.buttonText} information</button>		 
 					{ information }

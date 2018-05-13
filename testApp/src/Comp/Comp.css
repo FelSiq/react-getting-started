@@ -7,11 +7,23 @@
 	box-shadow: 0 2px 3px #ccc;	
 }
 
-/*
-// Media query
-@media (min-width: 500px) {
-	.Comp {
-		width: 450px;
-	}
+.Comp button {
+  background-color: #4682B4;
+  color: white;
+  font: inherit;
+  border: 1px solid #483D8B;
+  padding: 8px;
+  cursor: pointer;
 }
-*/
+
+.Comp button:hover {
+  background-color: #20B2AA;
+  color: black;
+}
+
+@media (min-width: 500px) {
+  .Comp {
+    width: 450px;
+  }
+}
+
