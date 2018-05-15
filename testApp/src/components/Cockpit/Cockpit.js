@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './Cockpit.css';
+import antiDiv from '../../hoc/AntiDiv';
 
 const cockpit = (props) => {
 
 	/* Classes changing dinamically section. */
 	let classes = [styles.boldFont];
 	let dbUsage = '';
-	let btnClass = '';
+	let btnClass = styles.Button;
 	if (props.showInformation) {
-		btnClass = styles.Red;
+		btnClass = [styles.Class, styles.Red].join(' ');
 	}
 
 	if (props.dbLength <= 3) {
@@ -20,14 +21,14 @@ const cockpit = (props) => {
 	}
 	classes=classes.join(' ');
 
-	return (<div className={styles.Cockpit}>
+	return <antiDiv>
 		<h1> {props.appTitle} </h1>
 		<p className={classes}> Database usage: {dbUsage} </p>
 		<button
 			className={btnClass}
 			onClick={props.showButton}>
 			{props.buttonText} information</button>
-	</div> );
+		</ antiDiv>
 }
 
 export default cockpit;
